@@ -19,7 +19,7 @@ jobs:
   clean:
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
       - run: curl -sS -o /dev/null https://api.github.com
@@ -27,7 +27,7 @@ jobs:
   always-public:
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
       - run: curl -sS -o /dev/null https://registry.npmjs.org/
@@ -35,7 +35,7 @@ jobs:
   fixed:
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
       - if: inputs.docker_source == 'dockerhub'
@@ -47,7 +47,7 @@ jobs:
     if: inputs.run_stale
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@v2
+      - uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
       - run: docker pull alpine:3.20
